@@ -9,6 +9,8 @@ parameters:
     locale: en
 
 framework:
+    serializer:
+        enabled: true
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
@@ -68,3 +70,55 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener: true
+    view:
+        view_response_listener: 'force'
+        formats:
+            json : true
+        templating_formats:
+            html: true
+        force_redirects:
+            html: true
+        failed_validation: HTTP_BAD_REQUEST
+        default_engine: twig
+    routing_loader:
+        default_format: json
+        include_format: false
+    access_denied_listener:
+        json: true
+
+nelmio_cors:
+    defaults:
+        allow_credentials: false
+        allow_origin: []
+        allow_headers: []
+        allow_methods: []
+        expose_headers: []
+        max_age: 0
+        hosts: []
+        origin_regex: false
+    paths:
+        '^/api/':
+            allow_origin: ['*']
+            allow_headers: ['*']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+            max_age: 0
+
+# nelmio_api_doc:
+#     name:        'API REST documentation - Mongo-tweet'
+#     cache:
+#         enabled: true
+#     sandbox:
+#         body_format:
+#             formats:
+#                 - form
+#         request_format:
+#             formats:
+#                 json:                application/json
+#     request_listener:
+#         enabled:              true
+#         parameter:            _doc
