@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             // new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             // new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

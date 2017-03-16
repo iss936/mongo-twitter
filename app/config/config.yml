@@ -122,3 +122,13 @@ fos_rest:
 #     request_listener:
 #         enabled:              true
 #         parameter:            _doc
+
+doctrine_mongodb:
+    connections:
+        default:
+            server: "%mongodb_server%"
+            options: {}
+    default_database: real_test
+    document_managers:
+        default:
+            auto_mapping: true

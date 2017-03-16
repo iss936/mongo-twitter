@@ -24,6 +24,7 @@ class DefaultController extends Controller
      */
     public function mainTwitterAction(Request $request)
     {
+        
         // replace this example code with whatever you need
         return $this->render('default/main_twitter.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,

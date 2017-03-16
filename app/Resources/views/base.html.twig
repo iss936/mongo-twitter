@@ -5,6 +5,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" media="all" />
+            <link rel="stylesheet" href="/css/histo.css" type="text/css" media="all" />
         {% endblock stylesheets %}
         {% block head_scripts %}
             <script type="text/javascript" src="/js/bootstrap.min.js"></script>
@@ -12,7 +13,6 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        
         
         {% block body %}{% endblock %}
         {% block javascripts %}
