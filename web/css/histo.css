@@ -12,3 +12,18 @@ font-size: 11px;
 .bar {
 fill: steelblue;
 }
+
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.chart-container {
+    width: 70%;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+.container {
+    
+}

@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+{% block head_scripts %}
+     <script type="text/javascript" src="/js/chart.bundle.js"></script>
+            <script type="text/javascript" src="/js/util.js"></script>
+            <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+
+{% endblock %}
+
+{% block body %}
+    <h1 align="center">Datavisualisation Benzema pique à 14h00</h1>
+    
+    <div class="container_new">
+    </div>
+
+<div align="center">
+    <a href="{{ path('main_twitter') }}" class="btn btn-info">retour</a>
+</div>
+{% endblock %}
+
+
+{% block javascripts %}
+    <!--<script src="http://d3js.org/d3.v3.min.js"></script> -->
+<script>
+
+// console.log(totals);
+createConfig();
+function createConfig() {
+      
+      var temp = {
+                type: 'line',
+                data: {
+                    labels: ["16/03/17 10h00", "16/03/17 11h00", "16/03/17 12h00", "16/03/17 13h00", "16/03/17 14h00", "16/03/17 15h00", "16/03/17 16h00"],
+                    datasets: [{
+                        label: "Nombre de tweets",
+                        borderColor: window.chartColors.red,
+                        backgroundColor: window.chartColors.red,
+                        data:  [{{totals}}],
+                        fill: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title:{
+                        display: true,
+                        text: 'Nombre de tweets #benzema'
+                    },
+                    tooltips: {
+                        position: 'nearest',
+                        mode: 'index',
+                        intersect: false,
+                        yPadding: 10,
+                        xPadding: 10,
+                        caretSize: 8,
+                        backgroundColor: 'rgba(72, 241, 12, 1)',
+                        titleFontColor: window.chartColors.black,
+                        bodyFontColor: window.chartColors.black,
+                        borderColor: 'rgba(0,0,0,1)',
+                        borderWidth: 4
+                    },
+                }
+            };
+        return temp;
+
+        }
+
+
+
+        window.onload = function() {
+            var container = document.querySelector('.container_new');
+            var div = document.createElement('div');
+            div.classList.add('chart-container');
+
+            var canvas = document.createElement('canvas');
+            div.appendChild(canvas);
+            container.appendChild(div);
+
+            var ctx = canvas.getContext('2d');
+            var config = createConfig();
+            new Chart(ctx, config);
+            console.log(config);
+        };
+
+
+</script>
+{% endblock %}

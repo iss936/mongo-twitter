@@ -9,13 +9,16 @@
     <div class="container">
         
     </div>
-
+    <div class="container_new">
+    </div>
     <ul>
         <li><a class="see" data-title="monde" href="#">Monde</a></li>
         <li><a class="see" data-title="france" href="#">France</a></li>
         <li><a class="see" data-title="espagne" href="#">Espagne</a></li>
         <li><a class="see" data-title="langues" href="#">Langues</a></li>
     </ul>
+    <br><br>
+    <a href="{{ path('benzema') }}">Pique Benzema à 14h00</a>
 {% endblock %}
 
 {% block javascripts %}
@@ -124,6 +127,57 @@ function getGraph(title,content)
 
     });
 }
+createConfig();
+function createConfig() {
+            return {
+                type: 'line',
+                data: {
+                    labels: ["16/03/17 10h00", "16/03/17 11h00", "16/03/17 12h00", "16/03/17 13h00", "16/03/17 14h00", "16/03/17 15h00", "16/03/17 16h00"],
+                    datasets: [{
+                        label: "Nombre de tweets",
+                        borderColor: window.chartColors.red,
+                        backgroundColor: window.chartColors.red,
+                        data: [6,8,8,31,91,79,30,34],
+                        fill: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title:{
+                        display: true,
+                        text: 'Nombre de tweets #benzema'
+                    },
+                    tooltips: {
+                        position: 'nearest',
+                        mode: 'index',
+                        intersect: false,
+                        yPadding: 10,
+                        xPadding: 10,
+                        caretSize: 8,
+                        backgroundColor: 'rgba(72, 241, 12, 1)',
+                        titleFontColor: window.chartColors.black,
+                        bodyFontColor: window.chartColors.black,
+                        borderColor: 'rgba(0,0,0,1)',
+                        borderWidth: 4
+                    },
+                }
+            };
+        }
+
+        window.onload = function() {
+            var container = document.querySelector('.container_new');
+            var div = document.createElement('div');
+            div.classList.add('chart-container');
+
+            var canvas = document.createElement('canvas');
+            div.appendChild(canvas);
+            container.appendChild(div);
+
+            var ctx = canvas.getContext('2d');
+            var config = createConfig();
+            new Chart(ctx, config);
+            console.log(config);
+        };
 
 }); //endReady
 </script>

@@ -40,6 +40,36 @@ class DefaultController extends Controller
         ]);
     }
 
+
+    /**
+     * @Route("/benzema-hours", name="benzema")
+     */
+    public function benzemaAction(Request $request)
+    {
+        
+        $datajsons = file_get_contents($this->container->getParameter('kernel.root_dir') . '/../web/json/benzema_hours.json');
+        $tab = json_decode($datajsons, true);
+        
+        $totals = "";
+
+        foreach ($tab as $oneTab => $value) {
+
+            foreach ($value as $key => $val) {
+                if ($key == "total") {
+                    $totals = $totals.$val.',';
+                }
+            }
+        }
+        rtrim($totals, ',');
+        $totals = substr($totals, 0, -1);
+ 
+        return $this->render('default/benzema_hours.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'datajsons' => $datajsons,
+            'totals' => $totals
+        ]);
+    }
+
     private function callApi() {
         
     }
