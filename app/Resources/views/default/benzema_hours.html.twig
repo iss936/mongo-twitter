@@ -25,11 +25,14 @@
 // console.log(totals);
 createConfig();
 function createConfig() {
-      
+      var strlabels = "{{labels }}";
+
+      var labels = strlabels.split(',');
+
       var temp = {
                 type: 'line',
                 data: {
-                    labels: ["16/03/17 10h00", "16/03/17 11h00", "16/03/17 12h00", "16/03/17 13h00", "16/03/17 14h00", "16/03/17 15h00", "16/03/17 16h00"],
+                    labels: labels,
                     datasets: [{
                         label: "Nombre de tweets",
                         borderColor: window.chartColors.red,

@@ -51,22 +51,33 @@ class DefaultController extends Controller
         $tab = json_decode($datajsons, true);
         
         $totals = "";
-
+        $labels = "";
         foreach ($tab as $oneTab => $value) {
 
             foreach ($value as $key => $val) {
                 if ($key == "total") {
                     $totals = $totals.$val.',';
                 }
+                else
+                {
+                    foreach ($value as $oneVal) {
+                        if (is_array($oneVal)) {
+                           $labels = $labels.$oneVal["day"].'/'.$oneVal["month"].'/'.$oneVal["year"]." ".$oneVal["hour"].'h00,';
+                           // $labels = $labels.$oneVal["day"].'/'.$oneVal["month"].'/'.$oneVal["year"].' '.$oneVal["hour"].'h00,';
+                        }
+                    }
+                    
+                }
             }
         }
-        rtrim($totals, ',');
         $totals = substr($totals, 0, -1);
- 
+        $labels = substr($labels, 0, -1);
+        
         return $this->render('default/benzema_hours.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'datajsons' => $datajsons,
-            'totals' => $totals
+            'totals' => $totals,
+            'labels' => $labels
         ]);
     }
 
