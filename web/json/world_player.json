@@ -1,0 +1,22 @@
+[
+{ 
+    "_id" : "Benzema", 
+    "total" : 831.0
+},
+{ 
+    "_id" : "CR7", 
+    "total" : 403.0
+},
+{ 
+    "_id" : "Messi", 
+    "total" : 325.0
+},
+{ 
+    "_id" : "Neymar", 
+    "total" : 62.0
+},
+{ 
+    "_id" : "Zlatan", 
+    "total" : 22.0
+}
+]

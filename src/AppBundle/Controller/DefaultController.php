@@ -24,10 +24,19 @@ class DefaultController extends Controller
      */
     public function mainTwitterAction(Request $request)
     {
-        
+            
+           /* $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+            $db = $m->selectDB('twitterdb');
+            $collection = new MongoCollection($db, 'twitter_search');
+          
+            var_dump($collection);
+            die();*/
+
+            $worldPlayer = file_get_contents($this->getParameter('kernel.root_dir')."/world_player.json");
         // replace this example code with whatever you need
         return $this->render('default/main_twitter.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'worldPlayer' => $worldPlayer
         ]);
     }
 

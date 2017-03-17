@@ -1,0 +1,74 @@
+[
+{ 
+    "_id" : {
+        "year" : "2017", 
+        "month" : "Mar", 
+        "day" : "16", 
+        "hour" : "10"
+    }, 
+    "total" : 6.0
+},
+{ 
+    "_id" : {
+        "year" : "2017", 
+        "month" : "Mar", 
+        "day" : "16", 
+        "hour" : "11"
+    }, 
+    "total" : 8.0
+}
+{
+    "_id" : {
+        "year" : "2017", 
+        "month" : "Mar", 
+        "day" : "16", 
+        "hour" : "12"
+    }, 
+    "total" : 8.0
+},
+{ 
+    "_id" : {
+        "year" : "2017", 
+        "month" : "Mar", 
+        "day" : "16", 
+        "hour" : "13"
+    }, 
+    "total" : 31.0
+},
+{ 
+    "_id" : {
+        "year" : "2017", 
+        "month" : "Mar", 
+        "day" : "16", 
+        "hour" : "14"
+    }, 
+    "total" : 91.0
+},
+{ 
+    "_id" : {
+        "year" : "2017", 
+        "month" : "Mar", 
+        "day" : "16", 
+        "hour" : "15"
+    }, 
+    "total" : 79.0
+},
+{ 
+    "_id" : {
+        "year" : "2017", 
+        "month" : "Mar", 
+        "day" : "16", 
+        "hour" : "16"
+    }, 
+    "total" : 30.0
+},
+{ 
+    "_id" : {
+        "year" : "2017", 
+        "month" : "Mar", 
+        "day" : "16", 
+        "hour" : "17"
+    }, 
+    "total" : 32.0
+}
+]
